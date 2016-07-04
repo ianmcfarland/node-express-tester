@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    </head>
+    <body>
+        <h2>Found book:</h2>
+        <ul>
+            <% for (var i in book) { %>
+            <li>
+                <%= i %>: <%= book[i] %>
+            </li>
+            <% } %>
+        </ul>
+    </body>
+</html>
