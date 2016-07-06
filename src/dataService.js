@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 
-var dbUrl = 'mongodb://localhost:27017/test';
+var dbUrl = require('../config/database').url;
 var db;
 
 MongoClient.connect(dbUrl, function(err, database) {
@@ -9,6 +9,7 @@ MongoClient.connect(dbUrl, function(err, database) {
         console.log('Error connecting to database: ' + err);
         throw err;
     } else {
+        console.log('Connected to URL: ' + dbUrl);
         db = database;
     }
 });
