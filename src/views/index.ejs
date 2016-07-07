@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+        <% include ./partials/head %>
     </head>
-    <body>
-        <h1>You have arrived.</h1>
+    <body class='container'>
+        <div class="jumbotron">You have arrived.</div>
+        <% if (loggedIn) { %> <p>You are authenticated!</p> <% } %>
         <p>List books: <a href="./books">list</a></p>
     </body>
 </html>
