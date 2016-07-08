@@ -56,16 +56,17 @@ function route(app, passport) {
         );
     });
     
-    app.get('/login', function(req, res) {
-        res.render('login', {message: req.flash('loginMessage') }); 
-    });
-    app.post('/login',
-        passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/login',
-            failureFlash: true
+    app.route('/login')
+        .get(function(req, res) {
+            res.render('login', {message: req.flash('loginMessage') }); 
         })
-    );
+        .post(
+            passport.authenticate('local', {
+                successRedirect: '/',
+                failureRedirect: '/login',
+                failureFlash: true
+            })
+        );
 };
 
 function isLoggedIn(res, req, next) {
